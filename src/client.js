@@ -32,6 +32,7 @@ var client = {
     // Check if in dev mode
     chrome.management.getSelf(function(info) {
       client.testing = info.installType === "development";
+      client.testing = false; 
       console.log("testing: " + client.testing);
 
       client.awc = new AWClient("aw-client-web", {testing: client.testing});
@@ -45,6 +46,8 @@ var client = {
   getBrowserName: function() {
     var agent_parsed = ua_parser(navigator.userAgent);
     var browsername = agent_parsed.browser.name;
+    browsername = "vivaldi";
+    console.log("BROWSERNAME: " + browsername);
     return browsername.toLowerCase();
   },
 
